@@ -17,6 +17,21 @@ namespace bett
             InitializeComponent();
         }
 
-       
+        private void login_Click(object sender, EventArgs e)
+        {
+
+            Login login = new Login();
+            this.Hide(); // Hide Form1
+            login.ShowDialog(); // Show Login form as modal
+            this.Show();
+        }
+
+        private void signUp_Click(object sender, EventArgs e)
+        {
+            Signup signup = new Signup();
+            this.Hide(); // Hide Form1
+            signup.ShowDialog(); // Show Login form as modal
+            this.Show();
+        }
     }
 }

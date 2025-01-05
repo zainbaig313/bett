@@ -16,5 +16,13 @@ namespace bett
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 mainScreen = new Form2();
+            this.Hide(); // Hide 
+            mainScreen.ShowDialog(); // Show form as modal
+            this.Show();
+        }
     }
 }

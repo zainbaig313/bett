@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.login = new System.Windows.Forms.Button();
-            this.register = new System.Windows.Forms.Button();
+            this.signUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -54,19 +54,21 @@
             this.login.TabIndex = 2;
             this.login.Text = "login";
             this.login.UseVisualStyleBackColor = false;
+            this.login.Click += new System.EventHandler(this.login_Click);
             // 
-            // register
+            // signUp
             // 
-            this.register.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.register.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.register.Location = new System.Drawing.Point(397, 342);
-            this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(79, 29);
-            this.register.TabIndex = 3;
-            this.register.Text = "register";
-            this.register.UseVisualStyleBackColor = false;
+            this.signUp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.signUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.signUp.Location = new System.Drawing.Point(397, 342);
+            this.signUp.Name = "signUp";
+            this.signUp.Size = new System.Drawing.Size(79, 29);
+            this.signUp.TabIndex = 3;
+            this.signUp.Text = "Sign Up";
+            this.signUp.UseVisualStyleBackColor = false;
+            this.signUp.Click += new System.EventHandler(this.signUp_Click);
             // 
             // Form1
             // 
@@ -76,7 +78,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(651, 598);
             this.Controls.Add(this.login);
-            this.Controls.Add(this.register);
+            this.Controls.Add(this.signUp);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -92,7 +94,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button login;
-        private System.Windows.Forms.Button register;
+        private System.Windows.Forms.Button signUp;
     }
 }
 
