@@ -16,7 +16,7 @@ namespace bett
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loader());
+            Application.Run(new Form1());
         }
     }
 }

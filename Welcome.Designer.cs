@@ -48,7 +48,7 @@
             this.login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login.ForeColor = System.Drawing.SystemColors.Control;
-            this.login.Location = new System.Drawing.Point(219, 294);
+            this.login.Location = new System.Drawing.Point(286, 342);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(79, 29);
             this.login.TabIndex = 2;
@@ -61,7 +61,7 @@
             this.register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.register.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.register.Location = new System.Drawing.Point(322, 294);
+            this.register.Location = new System.Drawing.Point(397, 342);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(79, 29);
             this.register.TabIndex = 3;
@@ -73,10 +73,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(672, 598);
-            this.Controls.Add(this.register);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(651, 598);
             this.Controls.Add(this.login);
+            this.Controls.Add(this.register);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = " ";
             this.ResumeLayout(false);
