@@ -40,5 +40,10 @@ namespace bett
             football.ShowDialog(); // Show  form as modal
             this.Show();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            labelCoinsForm2.Text = $"{GameManager.Coins}";
+        }
     }
 }

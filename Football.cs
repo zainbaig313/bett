@@ -16,5 +16,10 @@ namespace bett
         {
             InitializeComponent();
         }
+
+        private void Football_Load(object sender, EventArgs e)
+        {
+            labelCoinsFootball.Text = $"{GameManager.Coins}";
+        }
     }
 }

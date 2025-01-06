@@ -74,6 +74,7 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameManager.cs" />
     <Compile Include="loader.cs">
       <SubType>Form</SubType>
     </Compile>

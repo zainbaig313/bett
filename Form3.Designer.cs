@@ -35,8 +35,9 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.label3 = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.labelCoinsForm3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +107,17 @@
             this.radioButton3.Text = "Out";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(495, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 27);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "COINS";
+            // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
@@ -115,15 +127,16 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(305, 259);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
-            // label3
+            // labelCoinsForm3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(635, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Coins";
+            this.labelCoinsForm3.AutoSize = true;
+            this.labelCoinsForm3.BackColor = System.Drawing.Color.Transparent;
+            this.labelCoinsForm3.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCoinsForm3.Location = new System.Drawing.Point(590, 9);
+            this.labelCoinsForm3.Name = "labelCoinsForm3";
+            this.labelCoinsForm3.Size = new System.Drawing.Size(77, 27);
+            this.labelCoinsForm3.TabIndex = 8;
+            this.labelCoinsForm3.Text = "00000";
             // 
             // Form3
             // 
@@ -131,6 +144,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(702, 536);
+            this.Controls.Add(this.labelCoinsForm3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -143,6 +157,7 @@
             this.MinimizeBox = false;
             this.Name = "Form3";
             this.Text = "Cricket";
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,5 +174,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCoinsForm3;
     }
 }
