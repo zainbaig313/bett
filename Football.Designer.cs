@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelCoinsFootball = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,12 +139,38 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(248, 208);
             this.axWindowsMediaPlayer1.TabIndex = 7;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(150, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 27);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "COINS";
+            // 
+            // labelCoinsFootball
+            // 
+            this.labelCoinsFootball.AutoSize = true;
+            this.labelCoinsFootball.BackColor = System.Drawing.Color.Transparent;
+            this.labelCoinsFootball.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCoinsFootball.ForeColor = System.Drawing.Color.White;
+            this.labelCoinsFootball.Location = new System.Drawing.Point(250, 9);
+            this.labelCoinsFootball.Name = "labelCoinsFootball";
+            this.labelCoinsFootball.Size = new System.Drawing.Size(77, 27);
+            this.labelCoinsFootball.TabIndex = 9;
+            this.labelCoinsFootball.Text = "00000";
+            // 
             // Football
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::bett.Properties.Resources.It_s_Game_Time_Instagram_Story__700_x_500_px_;
             this.ClientSize = new System.Drawing.Size(703, 496);
+            this.Controls.Add(this.labelCoinsFootball);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
@@ -155,6 +183,7 @@
             this.MaximizeBox = false;
             this.Name = "Football";
             this.Text = "Football";
+            this.Load += new System.EventHandler(this.Football_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,5 +200,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelCoinsFootball;
     }
 }

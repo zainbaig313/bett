@@ -16,5 +16,10 @@ namespace bett
         {
             InitializeComponent();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            labelCoinsForm3.Text = $"{GameManager.Coins}";
+        }
     }
 }
