@@ -16,7 +16,7 @@ namespace bett
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Flip_a_coin());
+            Application.Run(new Football());
         }
     }
 }

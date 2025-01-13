@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Football));
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.radioButtonGoal = new System.Windows.Forms.RadioButton();
+            this.radioButtonMiss = new System.Windows.Forms.RadioButton();
+            this.lnlBet = new System.Windows.Forms.Label();
+            this.CbBettingAmountFootball = new System.Windows.Forms.ComboBox();
+            this.btnPlayFootball = new System.Windows.Forms.Button();
+            this.result = new System.Windows.Forms.Label();
+            this.wmpFootball = new AxWMPLib.AxWindowsMediaPlayer();
             this.label4 = new System.Windows.Forms.Label();
             this.labelCoinsFootball = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.footballTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.wmpFootball)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,90 +56,91 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Select:";
             // 
-            // radioButton1
+            // radioButtonGoal
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButton1.Location = new System.Drawing.Point(341, 261);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(54, 20);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Goal";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButtonGoal.AutoSize = true;
+            this.radioButtonGoal.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonGoal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonGoal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonGoal.Location = new System.Drawing.Point(341, 261);
+            this.radioButtonGoal.Name = "radioButtonGoal";
+            this.radioButtonGoal.Size = new System.Drawing.Size(54, 20);
+            this.radioButtonGoal.TabIndex = 1;
+            this.radioButtonGoal.TabStop = true;
+            this.radioButtonGoal.Text = "Goal";
+            this.radioButtonGoal.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // radioButtonMiss
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButton2.Location = new System.Drawing.Point(412, 261);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 20);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Miss";
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButtonMiss.AutoSize = true;
+            this.radioButtonMiss.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonMiss.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonMiss.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButtonMiss.Location = new System.Drawing.Point(412, 261);
+            this.radioButtonMiss.Name = "radioButtonMiss";
+            this.radioButtonMiss.Size = new System.Drawing.Size(53, 20);
+            this.radioButtonMiss.TabIndex = 2;
+            this.radioButtonMiss.TabStop = true;
+            this.radioButtonMiss.Text = "Miss";
+            this.radioButtonMiss.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // lnlBet
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(12, 204);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Bet amount:";
+            this.lnlBet.AutoSize = true;
+            this.lnlBet.BackColor = System.Drawing.Color.Transparent;
+            this.lnlBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlBet.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lnlBet.Location = new System.Drawing.Point(35, 204);
+            this.lnlBet.Name = "lnlBet";
+            this.lnlBet.Size = new System.Drawing.Size(77, 16);
+            this.lnlBet.TabIndex = 3;
+            this.lnlBet.Text = "Bet amount:";
             // 
-            // comboBox1
+            // CbBettingAmountFootball
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CbBettingAmountFootball.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbBettingAmountFootball.FormattingEnabled = true;
+            this.CbBettingAmountFootball.Items.AddRange(new object[] {
             "50",
             "100",
             "150"});
-            this.comboBox1.Location = new System.Drawing.Point(131, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(62, 24);
-            this.comboBox1.TabIndex = 4;
+            this.CbBettingAmountFootball.Location = new System.Drawing.Point(131, 201);
+            this.CbBettingAmountFootball.Name = "CbBettingAmountFootball";
+            this.CbBettingAmountFootball.Size = new System.Drawing.Size(62, 24);
+            this.CbBettingAmountFootball.TabIndex = 4;
             // 
-            // button1
+            // btnPlayFootball
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(39, 294);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 31);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPlayFootball.BackColor = System.Drawing.Color.Black;
+            this.btnPlayFootball.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlayFootball.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayFootball.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPlayFootball.Location = new System.Drawing.Point(39, 294);
+            this.btnPlayFootball.Name = "btnPlayFootball";
+            this.btnPlayFootball.Size = new System.Drawing.Size(108, 31);
+            this.btnPlayFootball.TabIndex = 5;
+            this.btnPlayFootball.Text = "Play";
+            this.btnPlayFootball.UseVisualStyleBackColor = false;
+            this.btnPlayFootball.Click += new System.EventHandler(this.btnPlayFootball_Click);
             // 
-            // label3
+            // result
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(45, 358);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 24);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Result:";
+            this.result.AutoSize = true;
+            this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.Location = new System.Drawing.Point(45, 358);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(67, 24);
+            this.result.TabIndex = 6;
+            this.result.Text = "Result:";
             // 
-            // axWindowsMediaPlayer1
+            // wmpFootball
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(247, 26);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(248, 208);
-            this.axWindowsMediaPlayer1.TabIndex = 7;
+            this.wmpFootball.Enabled = true;
+            this.wmpFootball.Location = new System.Drawing.Point(230, 47);
+            this.wmpFootball.Name = "wmpFootball";
+            this.wmpFootball.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpFootball.OcxState")));
+            this.wmpFootball.Size = new System.Drawing.Size(248, 208);
+            this.wmpFootball.TabIndex = 7;
             // 
             // label4
             // 
@@ -163,6 +166,10 @@
             this.labelCoinsFootball.TabIndex = 9;
             this.labelCoinsFootball.Text = "00000";
             // 
+            // footballTimer
+            // 
+            this.footballTimer.Tick += new System.EventHandler(this.footballTimer_Tick);
+            // 
             // Football
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,20 +178,20 @@
             this.ClientSize = new System.Drawing.Size(703, 496);
             this.Controls.Add(this.labelCoinsFootball);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.wmpFootball);
+            this.Controls.Add(this.result);
+            this.Controls.Add(this.btnPlayFootball);
+            this.Controls.Add(this.CbBettingAmountFootball);
+            this.Controls.Add(this.lnlBet);
+            this.Controls.Add(this.radioButtonMiss);
+            this.Controls.Add(this.radioButtonGoal);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Football";
             this.Text = "Football";
             this.Load += new System.EventHandler(this.Football_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wmpFootball)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,14 +200,15 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.RadioButton radioButtonGoal;
+        private System.Windows.Forms.RadioButton radioButtonMiss;
+        private System.Windows.Forms.Label lnlBet;
+        private System.Windows.Forms.ComboBox CbBettingAmountFootball;
+        private System.Windows.Forms.Button btnPlayFootball;
+        private System.Windows.Forms.Label result;
+        private AxWMPLib.AxWindowsMediaPlayer wmpFootball;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelCoinsFootball;
+        private System.Windows.Forms.Timer footballTimer;
     }
 }
