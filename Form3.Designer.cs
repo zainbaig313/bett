@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(702, 536);
+            this.ClientSize = new System.Drawing.Size(704, 536);
             this.Controls.Add(this.labelCoinsForm3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.radioButton3);
