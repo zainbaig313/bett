@@ -111,6 +111,7 @@
             this.resultFlipaCoin.Size = new System.Drawing.Size(67, 24);
             this.resultFlipaCoin.TabIndex = 6;
             this.resultFlipaCoin.Text = "Result:";
+
             // 
             // label4
             // 

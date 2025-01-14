@@ -86,5 +86,7 @@ namespace bett
         {
             labelCoinsFlipacoin.Text = $"{GameManager.Coins}";
         }
+
+        
     }
 }
