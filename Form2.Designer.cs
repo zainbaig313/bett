@@ -173,6 +173,7 @@
             this.Controls.Add(this.label2);
             this.Name = "Form2";
             this.Text = "intro";
+            this.Activated += new System.EventHandler(this.Form2_Activated);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

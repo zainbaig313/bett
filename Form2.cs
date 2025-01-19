@@ -16,7 +16,10 @@ namespace bett
         {
             InitializeComponent();
         }
-
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            UpdateCoinDisplay();  // Display the initial coin amount
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Form3 circket = new Form3();
@@ -40,12 +43,14 @@ namespace bett
             football.ShowDialog(); // Show form as modal
             this.Show();
         }
-
-        private void Form2_Load(object sender, EventArgs e)
+        private void UpdateCoinDisplay()
         {
-            labelCoinsForm2.Text = $"{GameManager.Coins}";  // Display the initial coin amount
+            labelCoinsForm2.Text = $"{GameManager.Coins}";
         }
 
-      
+        private void Form2_Activated(object sender, EventArgs e)
+        {
+            labelCoinsForm2.Text = $"{GameManager.Coins}";
+        }
     }
 }

@@ -57,72 +57,144 @@ namespace bett
 
         private void btnPlayFootball_Click(object sender, EventArgs e)
         {
-            if (CbBettingAmountFootball.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Please select a betting amount.");
-                return;
-            }
+                // Check if user has 0 coins
+                if (GameManager.Coins == 0)
+                {
+                    MessageBox.Show("You have 0 coins. You cannot place a bet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            if (!radioButtonGoal.Checked && !radioButtonMiss.Checked)
+                if (CbBettingAmountFootball.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a betting amount.");
+                    return;
+                }
+
+                // Parse the bet amount
+                int betAmountFootball = int.Parse(CbBettingAmountFootball.SelectedItem.ToString());
+
+                // Check if the user has enough coins for the bet
+                if (betAmountFootball > GameManager.Coins)
+                {
+                    MessageBox.Show("Not enough coins to place the bet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!radioButtonGoal.Checked && !radioButtonMiss.Checked)
+                {
+                    MessageBox.Show("Please select Goal or Miss.");
+                    return;
+                }
+
+                wmpFootball.Ctlcontrols.currentPosition = stoppedAt;
+                wmpFootball.Ctlcontrols.play();
+                wmpFootball.PlayStateChange += WmpFootball_PlayStateChange;
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select Goal or Miss.");
-                return;
+                MessageBox.Show("An error occurred. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
             }
-
-            wmpFootball.Ctlcontrols.currentPosition = stoppedAt;
-            wmpFootball.Ctlcontrols.play();
-            wmpFootball.PlayStateChange += WmpFootball_PlayStateChange;
         }
+
 
         private void WmpFootball_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
-            if (e.newState == 8) // 8 = Stopped
+            try
             {
-                string userChoice = radioButtonGoal.Checked ? "Goal" : "Miss";
-                int bettingAmount = int.Parse(CbBettingAmountFootball.SelectedItem.ToString());
-
-                if (userChoice == resultVideo)
+                if (e.newState == 8) // 8 = Stopped
                 {
-                    int winnings = (int)(bettingAmount * 0.7);
-                    GameManager.Coins += winnings;
-                    resultFootball.Text = $"You are correct! It was {resultVideo}. Coins increased by {winnings}.";
-                }
-                else
-                {
-                    GameManager.Coins -= bettingAmount;
-                    resultFootball.Text = $"You are wrong! It was {resultVideo}. Coins decreased by {bettingAmount}.";
-                }
+                    string userChoice = radioButtonGoal.Checked ? "Goal" : "Miss";
+                    int bettingAmount = int.Parse(CbBettingAmountFootball.SelectedItem.ToString());
 
+                    if (userChoice == resultVideo)
+                    {
+                        int winnings = (int)(bettingAmount * 0.7);
+                        GameManager.Coins += winnings;
+                        resultFootball.Text = $"You are correct! It was {resultVideo}. Coins increased by {winnings}.";
+                    }
+                    else
+                    {
+                        GameManager.Coins -= bettingAmount;
+
+                        // Check if coins go below 0
+                        if (GameManager.Coins < 0)
+                        {
+                            throw new InvalidOperationException("Insufficient coins. You cannot continue betting.");
+                        }
+
+                        resultFootball.Text = $"You are wrong! It was {resultVideo}. Coins decreased by {bettingAmount}.";
+                    }
+
+                    labelCoinsFootball.Text = GameManager.Coins.ToString();
+
+                    // Reset betting controls after the video ends
+                    CbBettingAmountFootball.SelectedItem = null;
+                    radioButtonGoal.Checked = false;
+                    radioButtonMiss.Checked = false;
+                }
+            }
+            catch (FormatException ex)
+            {
+                // Handle invalid format for betting amount
+                MessageBox.Show("Invalid betting amount format. Please select a valid amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Handle coins going below zero
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Reset coins to 0
+                GameManager.Coins = 0;
                 labelCoinsFootball.Text = GameManager.Coins.ToString();
-
-                // Reset betting controls after the video ends
-                CbBettingAmountFootball.SelectedItem = null;
-                radioButtonGoal.Checked = false;
-                radioButtonMiss.Checked = false;
+            }
+            catch (Exception ex)
+            {
+                // Handle unforeseen errors
+                MessageBox.Show("An error occurred. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
             }
         }
 
         private void btnStartFootball_Click(object sender, EventArgs e)
         {
-            if (playedVideos.Count == allVideos.Count)
+            try
             {
-                MessageBox.Show("We are out of videos. Please come back later!");
-                return;
+                // Check if user has 0 coins
+                if (GameManager.Coins == 0)
+                {
+                    MessageBox.Show("You have 0 coins. You cannot start the game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (playedVideos.Count == allVideos.Count)
+                {
+                    MessageBox.Show("We are out of videos. Please come back later!");
+                    return;
+                }
+
+                string selectedVideo;
+                do
+                {
+                    selectedVideo = allVideos[random.Next(allVideos.Count)];
+                } while (playedVideos.Contains(selectedVideo));
+
+                playedVideos.Add(selectedVideo);
+                wmpFootball.URL = selectedVideo;
+                resultVideo = selectedVideo.Contains("goal") ? "Goal" : "Miss";
+
+                wmpFootball.Ctlcontrols.play();
+                footballTimer.Interval = 100;
+                footballTimer.Enabled = true;
             }
-
-            string selectedVideo;
-            do
+            catch (Exception ex)
             {
-                selectedVideo = allVideos[random.Next(allVideos.Count)];
-            } while (playedVideos.Contains(selectedVideo));
-
-            playedVideos.Add(selectedVideo);
-            wmpFootball.URL = selectedVideo;
-            resultVideo = selectedVideo.Contains("goal") ? "Goal" : "Miss";
-
-            wmpFootball.Ctlcontrols.play();
-            footballTimer.Interval = 100;
-            footballTimer.Enabled = true;
+                MessageBox.Show("An error occurred. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

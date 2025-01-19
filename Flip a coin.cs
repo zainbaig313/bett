@@ -28,6 +28,13 @@ namespace bett
         {
             try
             {
+                // Check if user has 0 coins
+                if (GameManager.Coins == 0)
+                {
+                    MessageBox.Show("You have 0 coins. You cannot place a bet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 // Check if a betting amount is selected
                 if (CbBettingAmountFlipaCoin.SelectedItem == null)
                 {
@@ -37,6 +44,13 @@ namespace bett
 
                 // Parse the bet amount
                 int betAmountFlipaCoin = int.Parse(CbBettingAmountFlipaCoin.SelectedItem.ToString());
+
+                // Check if the user has enough coins for the bet
+                if (betAmountFlipaCoin > GameManager.Coins)
+                {
+                    MessageBox.Show("Not enough coins to place the bet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 // Ensure user makes a selection between Head or Tail
                 string userChoiceFlipaCoin = radioButtonHead.Checked ? "Head" : radioButtonTail.Checked ? "Tail" : "";
@@ -60,6 +74,13 @@ namespace bett
                 else
                 {
                     GameManager.Coins -= betAmountFlipaCoin;
+
+                    // Check if coins go below 0
+                    if (GameManager.Coins < 0)
+                    {
+                        throw new InvalidOperationException("Insufficient coins. You cannot continue betting.");
+                    }
+
                     resultFlipaCoin.Text = $"You lose! Coins decreased by {betAmountFlipaCoin}.";
                 }
             }
@@ -68,6 +89,14 @@ namespace bett
                 // Handle incorrect format for bet amount
                 MessageBox.Show("Invalid bet amount format. Please select a valid amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Handle coins going below zero
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Reset coins to 0
+                GameManager.Coins = 0;
             }
             catch (Exception ex)
             {
@@ -80,7 +109,12 @@ namespace bett
                 // Always update the coin display regardless of success or failure
                 UpdateCoinDisplay();
             }
+
+            CbBettingAmountFlipaCoin.SelectedItem = null;
+            radioButtonHead.Checked = false;
+            radioButtonTail.Checked = false;
         }
+
 
         private void UpdateCoinDisplay()
         {
