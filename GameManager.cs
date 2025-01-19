@@ -8,6 +8,6 @@ namespace bett
 {
     internal class GameManager
     {
-        public static int Coins = 1000;
+        public static int Coins =1000;
     }
 }
