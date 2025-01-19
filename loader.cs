@@ -21,13 +21,20 @@ namespace bett
         {
             wmpPlayer.URL = "C:\\Users\\HORIZON\\Desktop\\c#projectbett\\bett\\pictures\\loader.mp4"; // Replace with your video path
             wmpPlayer.Ctlcontrols.play();
+            timer1.Start(); // Start the timer to monitor the video playback
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Stop(); // Stop the timer
-            this.Hide(); // Hide the loader form
-            Form1 welcomeForm = new Form1(); // Create an instance of Form2
-            welcomeForm.Show(); // Show the welcome form
+            // Check if the video has reached 22 seconds
+            if (wmpPlayer.Ctlcontrols.currentPosition >= 22)
+            {
+                wmpPlayer.Ctlcontrols.pause(); // Pause the video at 22 seconds
+                timer1.Stop(); // Stop the timer
+                this.Hide(); // Hide the loader form
+                Form1 welcomeForm = new Form1(); // Create an instance of Form1
+                welcomeForm.Show(); // Show the welcome form
+            }
         }
     }
 }

@@ -38,7 +38,6 @@ namespace bett
 
         private void Football_Load(object sender, EventArgs e)
         {
-
             wmpFootball.uiMode = "none";
             radioButtonGoal.Checked = false;
             radioButtonMiss.Checked = false;
@@ -86,15 +85,20 @@ namespace bett
                 {
                     int winnings = (int)(bettingAmount * 0.7);
                     GameManager.Coins += winnings;
-                    result.Text = $"You are correct! It was {resultVideo}. Coins increased by {winnings}.";
+                    resultFootball.Text = $"You are correct! It was {resultVideo}. Coins increased by {winnings}.";
                 }
                 else
                 {
                     GameManager.Coins -= bettingAmount;
-                    result.Text = $"You are wrong! It was {resultVideo}. Coins decreased by {bettingAmount}.";
+                    resultFootball.Text = $"You are wrong! It was {resultVideo}. Coins decreased by {bettingAmount}.";
                 }
 
                 labelCoinsFootball.Text = GameManager.Coins.ToString();
+
+                // Reset betting controls after the video ends
+                CbBettingAmountFootball.SelectedItem = null;
+                radioButtonGoal.Checked = false;
+                radioButtonMiss.Checked = false;
             }
         }
 
