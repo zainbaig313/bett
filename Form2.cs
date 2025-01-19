@@ -21,7 +21,7 @@ namespace bett
         {
             Form3 circket = new Form3();
             this.Hide(); // Hide 
-            circket.ShowDialog(); // Show  form as modal
+            circket.ShowDialog(); // Show form as modal
             this.Show();
         }
 
@@ -29,7 +29,7 @@ namespace bett
         {
             Flip_a_coin flip_A_Coin = new Flip_a_coin();
             this.Hide(); // Hide 
-            flip_A_Coin.ShowDialog(); // Show  form as modal
+            flip_A_Coin.ShowDialog(); // Show form as modal
             this.Show();
         }
 
@@ -37,13 +37,15 @@ namespace bett
         {
             Football football = new Football();
             this.Hide(); // Hide 
-            football.ShowDialog(); // Show  form as modal
+            football.ShowDialog(); // Show form as modal
             this.Show();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            labelCoinsForm2.Text = $"{GameManager.Coins}";
+            labelCoinsForm2.Text = $"{GameManager.Coins}";  // Display the initial coin amount
         }
+
+      
     }
 }

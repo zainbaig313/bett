@@ -28,84 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.lblBetForm3 = new System.Windows.Forms.Label();
+            this.CbBettingAmountForm3 = new System.Windows.Forms.ComboBox();
+            this.radioButtonSix = new System.Windows.Forms.RadioButton();
+            this.radioButtonFour = new System.Windows.Forms.RadioButton();
+            this.radioButtonOut = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.wmpForm3 = new AxWMPLib.AxWindowsMediaPlayer();
             this.labelCoinsForm3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.btnStartForm3 = new System.Windows.Forms.Button();
+            this.btnPlayForm3 = new System.Windows.Forms.Button();
+            this.resultForm3 = new System.Windows.Forms.Label();
+            this.cricketTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.wmpForm3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 446);
+            this.label1.Location = new System.Drawing.Point(22, 296);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Select :";
             // 
-            // label2
+            // lblBetForm3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Bet amount:";
+            this.lblBetForm3.AutoSize = true;
+            this.lblBetForm3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBetForm3.Location = new System.Drawing.Point(22, 344);
+            this.lblBetForm3.Name = "lblBetForm3";
+            this.lblBetForm3.Size = new System.Drawing.Size(77, 16);
+            this.lblBetForm3.TabIndex = 2;
+            this.lblBetForm3.Text = "Bet amount:";
             // 
-            // comboBox1
+            // CbBettingAmountForm3
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "",
+            this.CbBettingAmountForm3.FormattingEnabled = true;
+            this.CbBettingAmountForm3.Items.AddRange(new object[] {
             "50",
             "100",
             "150"});
-            this.comboBox1.Location = new System.Drawing.Point(160, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 21);
-            this.comboBox1.TabIndex = 3;
+            this.CbBettingAmountForm3.Location = new System.Drawing.Point(123, 343);
+            this.CbBettingAmountForm3.Name = "CbBettingAmountForm3";
+            this.CbBettingAmountForm3.Size = new System.Drawing.Size(64, 21);
+            this.CbBettingAmountForm3.TabIndex = 3;
             // 
-            // radioButton1
+            // radioButtonSix
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(72, 445);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(39, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Six";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonSix.AutoSize = true;
+            this.radioButtonSix.Location = new System.Drawing.Point(82, 295);
+            this.radioButtonSix.Name = "radioButtonSix";
+            this.radioButtonSix.Size = new System.Drawing.Size(39, 17);
+            this.radioButtonSix.TabIndex = 4;
+            this.radioButtonSix.TabStop = true;
+            this.radioButtonSix.Text = "Six";
+            this.radioButtonSix.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonFour
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(131, 445);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(46, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Four";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonFour.AutoSize = true;
+            this.radioButtonFour.Location = new System.Drawing.Point(141, 295);
+            this.radioButtonFour.Name = "radioButtonFour";
+            this.radioButtonFour.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonFour.TabIndex = 5;
+            this.radioButtonFour.TabStop = true;
+            this.radioButtonFour.Text = "Four";
+            this.radioButtonFour.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButtonOut
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(195, 445);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(42, 17);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Out";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButtonOut.AutoSize = true;
+            this.radioButtonOut.Location = new System.Drawing.Point(205, 295);
+            this.radioButtonOut.Name = "radioButtonOut";
+            this.radioButtonOut.Size = new System.Drawing.Size(42, 17);
+            this.radioButtonOut.TabIndex = 6;
+            this.radioButtonOut.TabStop = true;
+            this.radioButtonOut.Text = "Out";
+            this.radioButtonOut.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -118,14 +122,14 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "COINS";
             // 
-            // axWindowsMediaPlayer1
+            // wmpForm3
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 147);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(305, 259);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.wmpForm3.Enabled = true;
+            this.wmpForm3.Location = new System.Drawing.Point(15, 12);
+            this.wmpForm3.Name = "wmpForm3";
+            this.wmpForm3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpForm3.OcxState")));
+            this.wmpForm3.Size = new System.Drawing.Size(332, 263);
+            this.wmpForm3.TabIndex = 0;
             // 
             // labelCoinsForm3
             // 
@@ -138,27 +142,72 @@
             this.labelCoinsForm3.TabIndex = 8;
             this.labelCoinsForm3.Text = "00000";
             // 
+            // btnStartForm3
+            // 
+            this.btnStartForm3.BackColor = System.Drawing.Color.Black;
+            this.btnStartForm3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartForm3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartForm3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnStartForm3.Location = new System.Drawing.Point(15, 437);
+            this.btnStartForm3.Name = "btnStartForm3";
+            this.btnStartForm3.Size = new System.Drawing.Size(108, 31);
+            this.btnStartForm3.TabIndex = 11;
+            this.btnStartForm3.Text = "Start";
+            this.btnStartForm3.UseVisualStyleBackColor = false;
+            this.btnStartForm3.Click += new System.EventHandler(this.btnStartForm3_Click);
+            // 
+            // btnPlayForm3
+            // 
+            this.btnPlayForm3.BackColor = System.Drawing.Color.Black;
+            this.btnPlayForm3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlayForm3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayForm3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPlayForm3.Location = new System.Drawing.Point(163, 437);
+            this.btnPlayForm3.Name = "btnPlayForm3";
+            this.btnPlayForm3.Size = new System.Drawing.Size(108, 31);
+            this.btnPlayForm3.TabIndex = 12;
+            this.btnPlayForm3.Text = "Play";
+            this.btnPlayForm3.UseVisualStyleBackColor = false;
+            this.btnPlayForm3.Click += new System.EventHandler(this.btnPlayForm3_Click);
+            // 
+            // resultForm3
+            // 
+            this.resultForm3.AutoSize = true;
+            this.resultForm3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultForm3.Location = new System.Drawing.Point(21, 494);
+            this.resultForm3.Name = "resultForm3";
+            this.resultForm3.Size = new System.Drawing.Size(67, 24);
+            this.resultForm3.TabIndex = 13;
+            this.resultForm3.Text = "Result:";
+            // 
+            // cricketTimer
+            // 
+            this.cricketTimer.Tick += new System.EventHandler(this.cricketTimer_Tick);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(704, 536);
+            this.Controls.Add(this.resultForm3);
+            this.Controls.Add(this.btnPlayForm3);
+            this.Controls.Add(this.btnStartForm3);
             this.Controls.Add(this.labelCoinsForm3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.radioButtonOut);
+            this.Controls.Add(this.radioButtonFour);
+            this.Controls.Add(this.radioButtonSix);
+            this.Controls.Add(this.CbBettingAmountForm3);
+            this.Controls.Add(this.lblBetForm3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.wmpForm3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "Form3";
             this.Text = "Cricket";
             this.Load += new System.EventHandler(this.Form3_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wmpForm3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,14 +215,18 @@
 
         #endregion
 
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private AxWMPLib.AxWindowsMediaPlayer wmpForm3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label lblBetForm3;
+        private System.Windows.Forms.ComboBox CbBettingAmountForm3;
+        private System.Windows.Forms.RadioButton radioButtonSix;
+        private System.Windows.Forms.RadioButton radioButtonFour;
+        private System.Windows.Forms.RadioButton radioButtonOut;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelCoinsForm3;
+        private System.Windows.Forms.Button btnStartForm3;
+        private System.Windows.Forms.Button btnPlayForm3;
+        private System.Windows.Forms.Label resultForm3;
+        private System.Windows.Forms.Timer cricketTimer;
     }
 }
