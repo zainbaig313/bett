@@ -24,5 +24,7 @@ namespace bett
             mainScreen.ShowDialog(); // Show form as modal
             this.Show();
         }
+
+       
     }
 }

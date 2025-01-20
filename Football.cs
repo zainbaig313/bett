@@ -106,6 +106,14 @@ namespace bett
             {
                 if (e.newState == 8) // 8 = Stopped
                 {
+                    // Check if the betting amount is selected before proceeding
+                    if (CbBettingAmountFootball.SelectedItem == null)
+                    {
+                        CbBettingAmountFootball.BackColor = Color.White;
+
+                        return; // Exit the method early if no betting amount is selected
+                    }
+
                     string userChoice = radioButtonGoal.Checked ? "Goal" : "Miss";
                     int bettingAmount = int.Parse(CbBettingAmountFootball.SelectedItem.ToString());
 
@@ -131,7 +139,7 @@ namespace bett
                     labelCoinsFootball.Text = GameManager.Coins.ToString();
 
                     // Reset betting controls after the video ends
-                    CbBettingAmountFootball.SelectedItem = null;
+                    CbBettingAmountFootball.SelectedIndex = -1;  // Use SelectedIndex to clear selection
                     radioButtonGoal.Checked = false;
                     radioButtonMiss.Checked = false;
                 }
@@ -158,6 +166,7 @@ namespace bett
                 Console.WriteLine(ex.Message);
             }
         }
+
 
         private void btnStartFootball_Click(object sender, EventArgs e)
         {
@@ -196,5 +205,6 @@ namespace bett
                 Console.WriteLine(ex.Message);
             }
         }
+
     }
 }

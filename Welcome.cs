@@ -33,5 +33,10 @@ namespace bett
             signup.ShowDialog(); // Show Login form as modal
             this.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

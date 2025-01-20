@@ -42,7 +42,7 @@
             this.wmpPlayer.Location = new System.Drawing.Point(0, 0);
             this.wmpPlayer.Name = "wmpPlayer";
             this.wmpPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpPlayer.OcxState")));
-            this.wmpPlayer.Size = new System.Drawing.Size(709, 450);
+            this.wmpPlayer.Size = new System.Drawing.Size(934, 661);
             this.wmpPlayer.TabIndex = 0;
             // 
             // timer1
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 450);
+            this.ClientSize = new System.Drawing.Size(934, 661);
             this.Controls.Add(this.wmpPlayer);
             this.Name = "loader";
             this.Text = "loader";

@@ -46,11 +46,11 @@
             // 
             this.login.BackColor = System.Drawing.Color.Black;
             this.login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login.Font = new System.Drawing.Font("Segoe Script", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login.ForeColor = System.Drawing.SystemColors.Control;
-            this.login.Location = new System.Drawing.Point(286, 342);
+            this.login.Location = new System.Drawing.Point(413, 425);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(79, 29);
+            this.login.Size = new System.Drawing.Size(137, 49);
             this.login.TabIndex = 2;
             this.login.Text = "login";
             this.login.UseVisualStyleBackColor = false;
@@ -60,11 +60,11 @@
             // 
             this.signUp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.signUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUp.Font = new System.Drawing.Font("Segoe Script", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.signUp.Location = new System.Drawing.Point(397, 342);
+            this.signUp.Location = new System.Drawing.Point(644, 425);
             this.signUp.Name = "signUp";
-            this.signUp.Size = new System.Drawing.Size(79, 29);
+            this.signUp.Size = new System.Drawing.Size(134, 49);
             this.signUp.TabIndex = 3;
             this.signUp.Text = "Sign Up";
             this.signUp.UseVisualStyleBackColor = false;
@@ -76,7 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(651, 598);
+            this.ClientSize = new System.Drawing.Size(934, 661);
             this.Controls.Add(this.login);
             this.Controls.Add(this.signUp);
             this.Controls.Add(this.label1);
@@ -85,6 +85,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
