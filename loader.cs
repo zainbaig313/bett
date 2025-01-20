@@ -19,6 +19,7 @@ namespace bett
 
         private void loader_Load(object sender, EventArgs e)
         {
+            wmpPlayer.uiMode = "none";
             wmpPlayer.URL = "C:\\Users\\HORIZON\\Desktop\\c#projectbett\\bett\\pictures\\loader.mp4"; // Replace with your video path
             wmpPlayer.Ctlcontrols.play();
             timer1.Start(); // Start the timer to monitor the video playback

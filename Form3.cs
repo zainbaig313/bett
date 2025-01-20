@@ -102,12 +102,20 @@ namespace bett
         }
 
 
+
         private void WmpForm3_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
             try
             {
                 if (e.newState == 8) // 8 = Stopped
                 {
+                    // Check if the betting amount is selected before proceeding
+                    if (CbBettingAmountForm3.SelectedItem == null)
+                    {
+                        CbBettingAmountForm3.BackColor = Color.White;
+                        return; // Exit the method early if no betting amount is selected
+                    }
+
                     string userChoice = radioButtonSix.Checked ? "Six" : radioButtonFour.Checked ? "Four" : "Out";
                     int bettingAmount = int.Parse(CbBettingAmountForm3.SelectedItem.ToString());
 
@@ -134,7 +142,7 @@ namespace bett
                     labelCoinsForm3.Text = GameManager.Coins.ToString();
 
                     // Reset betting controls after the video ends
-                    CbBettingAmountForm3.SelectedItem = null;
+                    CbBettingAmountForm3.SelectedIndex = -1;  // Use SelectedIndex to clear selection
                     radioButtonSix.Checked = false;
                     radioButtonFour.Checked = false;
                     radioButtonOut.Checked = false;
@@ -162,6 +170,7 @@ namespace bett
                 Console.WriteLine(ex.Message);
             }
         }
+
 
 
         private void btnStartForm3_Click(object sender, EventArgs e)
@@ -195,6 +204,7 @@ namespace bett
             cricketTimer.Interval = 100;
             cricketTimer.Enabled = true;  // Enable the timer to track video position
         }
+
 
     }
 }
